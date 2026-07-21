@@ -1,0 +1,11 @@
+# Cloudflare local dev variables.
+# Copy this file to `.dev.vars` for local development (it is gitignored), and
+# set the same values in the Cloudflare dashboard for production:
+#   Workers & Pages → your project → Settings → Variables and Secrets.
+#
+# RESEND_API_KEY is required for the contact form to actually send email.
+# Without it, submissions are validated and logged but not delivered.
+
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=contact@zaramtech.com
+CONTACT_FROM_EMAIL=zaramTech <noreply@zaramtech.com>
