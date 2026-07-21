@@ -49,7 +49,10 @@ export default function Reveal({
           }
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      // threshold 0 = fire as soon as any part enters the viewport. Using a
+      // fraction here (e.g. 0.15) breaks on very tall elements whose height
+      // exceeds the viewport, since that fraction may never be visible at once.
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
 
     observer.observe(el);
