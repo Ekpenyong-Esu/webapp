@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const seoTitle =
-  "zaramTech AB — Embedded systems, edge AI & automotive test engineering";
+  "zaramTech AB - Embedded systems, Machine learning, AI, Full Stack, edge AI & automotive test engineering";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -65,11 +65,21 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: siteConfig.company.legalName,
+  name: siteConfig.name,
+  legalName: siteConfig.company.legalName,
+  alternateName: ["zaramTech", "ZaramTech"],
   url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.svg`,
   email: siteConfig.company.email,
   description: siteConfig.description,
   sameAs: [siteConfig.company.linkedin],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: siteConfig.company.email,
+    contactType: "customer support",
+    areaServed: "SE",
+    availableLanguage: ["English", "Swedish"],
+  },
   address: {
     "@type": "PostalAddress",
     addressCountry: "SE",

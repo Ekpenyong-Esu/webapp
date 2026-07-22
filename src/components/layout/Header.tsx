@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import MobileNav from "@/components/layout/MobileNav";
 
@@ -12,8 +13,15 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Brand (in-page anchor to the top; native <a> for reliable hash scroll) */}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href="/#hero" className="font-heading text-lg font-bold text-navy">
-          {siteConfig.name}
+        <a href="/#hero" className="flex items-center" aria-label={siteConfig.name}>
+          <Image
+            src="/logo.svg"
+            alt={siteConfig.name}
+            width={190}
+            height={40}
+            priority
+            className="h-9 w-auto"
+          />
         </a>
 
         {/* Primary navigation (hidden on small screens) */}
