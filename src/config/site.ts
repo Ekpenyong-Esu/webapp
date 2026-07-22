@@ -95,6 +95,12 @@ export const siteConfig = {
       benefit: "High-quality labeled datasets for training and validating ML models.",
       tags: ["Image Labeling", "Bounding Boxes", "Segmentation", "Datasets", "QA"],
     },
+    {
+      icon: "consult",
+      title: "Technical Consultancy",
+      benefit: "Architecture, feasibility, and hands-on guidance across the hardware-to-cloud stack.",
+      tags: ["Architecture", "Feasibility", "Code Review", "Mentoring", "Security"],
+    },
   ],
 
   /**
@@ -201,6 +207,16 @@ export const siteConfig = {
         "Developed C/C++ real-time applications on FreeRTOS, deployed across STM32, ESP32, Raspberry Pico and Arduino-class devices.",
       result:
         "Deterministic task timing and stable long-run operation on low-power hardware.",
+    },
+    {
+      domain: "Consultancy",
+      title: "Architecture & code-quality advisory for an embedded team",
+      problem:
+        "A team needed independent review of their embedded software architecture and delivery process.",
+      approach:
+        "Provided architecture guidance, code reviews, and test-automation practices within their agile workflow.",
+      result:
+        "Clearer architecture, higher code quality, and a more reliable release process.",
     },
   ],
 

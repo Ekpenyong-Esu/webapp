@@ -1,4 +1,4 @@
-import { Cpu, Gauge, BrainCircuit, Network, RadioTower, Eye, Code2, Workflow, Tags } from "lucide-react";
+import { Cpu, Gauge, BrainCircuit, Network, RadioTower, Eye, Code2, Workflow, Tags, Handshake } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import ServiceCard from "@/components/sections/ServiceCard";
@@ -19,6 +19,7 @@ const icons: Record<string, LucideIcon> = {
   code: Code2,
   cicd: Workflow,
   annotate: Tags,
+  consult: Handshake,
 };
 
 export default function Services() {
