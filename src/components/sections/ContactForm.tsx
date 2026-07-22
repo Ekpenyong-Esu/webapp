@@ -69,6 +69,17 @@ export default function ContactForm({ privacyHref }: { privacyHref: string }) {
         <p className="mt-2 text-sm text-ink-muted">
           I&apos;ll get back to you shortly.
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            setStatus("idle");
+            setMessage("");
+            setErrors({});
+          }}
+          className="mx-auto mt-6 inline-flex items-center justify-center rounded-lg border border-navy/20 px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-surface"
+        >
+          Send another message
+        </button>
       </div>
     );
   }
