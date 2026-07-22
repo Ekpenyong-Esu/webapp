@@ -8,6 +8,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "vars": {
+    // Contact form sender/recipient (non-secret). The API key is set separately
+    // as a secret:  npx wrangler secret put RESEND_API_KEY
+    "CONTACT_FROM_EMAIL": "zaramTech Website <contact@zaramtech.com>",
+    "CONTACT_TO_EMAIL": "zaramtechab@gmail.com"
+  },
   "observability": {
     "enabled": true
   }
