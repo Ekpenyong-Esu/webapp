@@ -68,6 +68,25 @@ h3 {
   outline-offset: 2px;
 }
 
+/* A cyan pulse travelling along a FlowDiagram connector (silicon → cloud).
+   Neutralised automatically by the prefers-reduced-motion rule below. */
+@keyframes flow-dot {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
 /* Respect users who prefer reduced motion (design system requirement) */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -1,5 +1,6 @@
 import { siteConfig } from "@/config/site";
 import HeroMotif from "@/components/sections/HeroMotif";
+import FlowDiagram from "@/components/sections/FlowDiagram";
 import Reveal from "@/components/ui/Reveal";
 
 /**
@@ -28,17 +29,9 @@ export default function Hero() {
             {hero.subheadline}
           </p>
 
-          {/* Full-stack-of-hardware differentiator, shown as a subtle chain */}
-          <ul className="flex flex-wrap items-center justify-center gap-2">
-            {hero.chain.map((step) => (
-              <li
-                key={step}
-                className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm font-medium text-white/80 backdrop-blur"
-              >
-                {step}
-              </li>
-            ))}
-          </ul>
+          {/* Full-stack-of-hardware differentiator, shown as an animated
+              silicon → cloud flow */}
+          <FlowDiagram steps={hero.chain} />
 
           <a
             href={cta.href}
@@ -51,7 +44,7 @@ export default function Hero() {
 
       {/* Soften the hard edge where the dark hero meets the white Services
           section below. Purely decorative, so it ignores pointer events. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-surface" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-b from-transparent to-surface" />
     </section>
   );
 }
