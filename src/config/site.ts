@@ -27,12 +27,12 @@ export const siteConfig = {
    */
   hero: {
     /** The sharp, specific one-liner (design + positioning docs). */
-    headline: "AI, Machine learning, Robotics, Embedded systems, edge AI, Full Stack Web Development & automotive test engineering.",
+    headline: "From silicon to cloud — one engineering partner.",
     /** Supporting line that states the full-stack-of-hardware differentiator. */
     subheadline:
-      "From bare-metal firmware and HIL/SIL rigs to on-device ML,one partner across the whole path, from silicon to cloud.",
+      "Embedded firmware, HIL/SIL automotive test rigs, on-device edge AI, Robotics, Machine Learning, and full-stack software — one partner across the whole path, from bare-metal to cloud.",
     /** The silicon → cloud chain, shown as a subtle row of steps. */
-    chain: ["Embedded", "Machine Learning", "Firmware", "RTOS", "CAN / TSN", "HIL / SIL", "Edge AI", "Cloud"]
+    chain: ["Embedded", "Machine Learning", "Robotics", "Firmware", "RTOS", "CAN / TSN", "HIL / SIL", "Edge AI", "Cloud"]
   },
 
   /**

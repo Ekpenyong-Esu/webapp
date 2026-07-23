@@ -5,6 +5,13 @@ import type { siteConfig } from "@/config/site";
 type Service = (typeof siteConfig.services)[number];
 
 /**
+ * How many tags a card shows before collapsing the rest into a "+N" chip.
+ * Keeping this here (not per-card) means every card stays visually balanced and
+ * the section reads as a scannable grid rather than a wall of pills.
+ */
+const MAX_VISIBLE_TAGS = 4;
+
+/**
  * ServiceCard (Layer 7): a single reusable service card. Presentation-only —
  * it receives its data and icon as props, so it knows nothing about the config
  * or the icon mapping. That keeps it reusable and easy to test.
@@ -16,6 +23,9 @@ export default function ServiceCard({
   service: Service;
   Icon: LucideIcon;
 }) {
+  const visibleTags = service.tags.slice(0, MAX_VISIBLE_TAGS);
+  const hiddenTagCount = service.tags.length - visibleTags.length;
+
   return (
     <li className="group rounded-lg border border-navy/10 bg-surface p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan hover:shadow-lg hover:shadow-navy/5">
       <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-surface-muted text-navy transition-colors group-hover:bg-cyan group-hover:text-navy-dark">
@@ -30,7 +40,7 @@ export default function ServiceCard({
       </p>
 
       <ul className="mt-4 flex flex-wrap gap-2">
-        {service.tags.map((tag) => (
+        {visibleTags.map((tag) => (
           <li
             key={tag}
             className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-ink-muted"
@@ -38,6 +48,11 @@ export default function ServiceCard({
             {tag}
           </li>
         ))}
+        {hiddenTagCount > 0 && (
+          <li className="rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-navy">
+            +{hiddenTagCount}
+          </li>
+        )}
       </ul>
     </li>
   );

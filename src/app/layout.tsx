@@ -10,12 +10,14 @@ import { siteConfig } from "@/config/site";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 // Heading font: geometric sans for a modern, technical feel
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const seoTitle =

@@ -17,7 +17,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudy }) {
 
   return (
     <li className="flex flex-col rounded-lg border border-navy/10 bg-surface p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan/60 hover:shadow-lg hover:shadow-navy/5">
-      <span className="w-fit rounded-full bg-surface-muted px-2.5 py-1 text-xs font-medium text-ink-muted">
+      <span className="w-fit rounded-full bg-cyan/10 px-2.5 py-1 text-xs font-semibold text-navy ring-1 ring-inset ring-cyan/20">
         {study.domain}
       </span>
 

@@ -2,10 +2,12 @@
  * HeroMotif — the single tasteful technical motif for the hero
  * (design system §4: "one tasteful technical motif, not decoration everywhere").
  *
- * Subtle, low-contrast PCB traces sitting behind the tagline. It is purely
- * decorative, so it is `aria-hidden`, ignores pointer events, and never affects
- * layout. The gentle node pulse is automatically neutralised for users with
- * `prefers-reduced-motion` via the global rule in globals.css.
+ * On the dark navy hero it does two jobs: a soft cyan radial glow that lifts the
+ * background out of flatness, and low-contrast PCB traces with a few glowing
+ * solder nodes. It is purely decorative, so it is `aria-hidden`, ignores pointer
+ * events, and never affects layout. The gentle node pulse is automatically
+ * neutralised for users with `prefers-reduced-motion` via the global rule in
+ * globals.css.
  */
 export default function HeroMotif() {
   return (
@@ -13,17 +15,27 @@ export default function HeroMotif() {
       aria-hidden
       className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
     >
+      {/* Soft cyan radial glow — references the brand token so it stays in sync
+          with the design system. Blurred and oversized to feel like ambient light. */}
+      <div
+        className="absolute left-1/2 top-1/3 h-220 w-220 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in srgb, var(--color-cyan) 18%, transparent) 0%, transparent 60%)",
+        }}
+      />
+
       <svg
         className="h-full w-full"
         viewBox="0 0 1200 600"
         preserveAspectRatio="xMidYMid slice"
         fill="none"
       >
-        {/* PCB traces — thin navy lines with right-angle turns */}
+        {/* PCB traces — thin cyan lines with right-angle turns */}
         <g
-          stroke="var(--color-navy)"
-          strokeOpacity="0.08"
-          strokeWidth="2"
+          stroke="var(--color-cyan)"
+          strokeOpacity="0.22"
+          strokeWidth="1.5"
           strokeLinecap="round"
         >
           <path d="M0 120 H320 L380 180 H620" />
@@ -36,15 +48,15 @@ export default function HeroMotif() {
           <path d="M540 600 V520 L480 460 V340" />
         </g>
 
-        {/* Solder pads / nodes — a few cyan accents, some gently pulsing */}
+        {/* Solder pads / nodes — glowing cyan accents, some gently pulsing */}
         <g fill="var(--color-cyan)">
-          <circle cx="620" cy="180" r="4" fillOpacity="0.25" />
-          <circle cx="560" cy="150" r="4" fillOpacity="0.2" />
-          <circle cx="520" cy="240" r="4" fillOpacity="0.2" className="animate-pulse" />
-          <circle cx="480" cy="380" r="4" fillOpacity="0.2" />
-          <circle cx="700" cy="420" r="4" fillOpacity="0.25" className="animate-pulse" />
-          <circle cx="660" cy="140" r="4" fillOpacity="0.2" />
-          <circle cx="480" cy="460" r="4" fillOpacity="0.2" />
+          <circle cx="620" cy="180" r="4" fillOpacity="0.7" />
+          <circle cx="560" cy="150" r="4" fillOpacity="0.5" />
+          <circle cx="520" cy="240" r="4" fillOpacity="0.6" className="animate-pulse" />
+          <circle cx="480" cy="380" r="4" fillOpacity="0.5" />
+          <circle cx="700" cy="420" r="4" fillOpacity="0.7" className="animate-pulse" />
+          <circle cx="660" cy="140" r="4" fillOpacity="0.5" />
+          <circle cx="480" cy="460" r="4" fillOpacity="0.5" />
         </g>
       </svg>
     </div>

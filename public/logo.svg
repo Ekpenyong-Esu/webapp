@@ -17,6 +17,6 @@
 
   <!-- Wordmark -->
   <text x="88" y="51" font-family="'Space Grotesk', 'Segoe UI', Inter, Arial, sans-serif" font-size="34" letter-spacing="-0.5">
-    <tspan fill="#1F3A5F" font-weight="700">zaram</tspan><tspan fill="#1F3A5F" font-weight="500">Tech</tspan><tspan fill="#00C2CB" font-weight="700"> AB</tspan>
+    <tspan fill="#1F3A5F" font-weight="700">Zaram</tspan><tspan fill="#1F3A5F" font-weight="700">Tech</tspan><tspan fill="#00C2CB" font-weight="700"> AB</tspan>
   </text>
 </svg>

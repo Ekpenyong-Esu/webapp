@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1128" height="191" viewBox="0 0 1128 191" fill="none" role="img" aria-label="zaramTech AB LinkedIn cover">
+  <title>zaramTech AB — Embedded · Robotics · Machine Learning · Edge AI · Full Stack</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1128" y2="191" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#16293F"/>
+      <stop offset="55%" stop-color="#1F3A5F"/>
+      <stop offset="100%" stop-color="#274a77"/>
+    </linearGradient>
+    <radialGradient id="accent" cx="88%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#00C2CB" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#00C2CB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1128" height="191" fill="url(#bg)"/>
+  <rect width="1128" height="191" fill="url(#accent)"/>
+
+  <!-- Subtle circuit trace motif (right side) -->
+  <g stroke="#00C2CB" stroke-opacity="0.18" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M760 40 H860 L890 70 H980"/>
+    <path d="M800 150 H900 L930 120 H1030"/>
+    <path d="M980 70 V120"/>
+  </g>
+  <g fill="#00C2CB" fill-opacity="0.45">
+    <circle cx="760" cy="40" r="3.5"/>
+    <circle cx="980" cy="70" r="3.5"/>
+    <circle cx="900" cy="150" r="3.5"/>
+    <circle cx="1030" cy="120" r="3.5"/>
+  </g>
+
+  <!-- Logo mark -->
+  <g transform="translate(373 48) scale(1.0)">
+    <rect x="0" y="0" width="80" height="80" rx="18" fill="#1F3A5F"/>
+    <rect x="0.75" y="0.75" width="78.5" height="78.5" rx="17.25" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5"/>
+    <g stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M28 30 H52"/>
+      <path d="M52 30 L28 50"/>
+      <path d="M28 50 H52"/>
+    </g>
+    <circle cx="28" cy="30" r="5" fill="#00C2CB"/>
+    <circle cx="52" cy="50" r="5" fill="#00C2CB"/>
+    <circle cx="40" cy="40" r="3.5" fill="#1F3A5F" stroke="#00C2CB" stroke-width="2.5"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="473" y="101" font-family="'Space Grotesk', 'Segoe UI', Inter, Arial, sans-serif" font-size="42" letter-spacing="-0.5">
+    <tspan fill="#ffffff" font-weight="700">Zaram</tspan><tspan fill="#ffffff" font-weight="700">Tech</tspan><tspan fill="#00C2CB" font-weight="700"> AB</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="620" y="150" text-anchor="middle" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="14" letter-spacing="1.5" fill="#9FB2C8" font-weight="500">
+    EMBEDDED · AUTOMOTIVE · ROBOTICS · MACHINE LEARNING · AI · EDGE AI · FULL STACK
+  </text>
+</svg>

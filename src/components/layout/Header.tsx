@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import MobileNav from "@/components/layout/MobileNav";
+import PrimaryNav from "@/components/layout/PrimaryNav";
 
 /**
  * Site header: brand on the left, navigation + call-to-action on the right.
@@ -26,18 +27,7 @@ export default function Header() {
 
         {/* Primary navigation (hidden on small screens) */}
         <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex items-center gap-8 text-sm text-ink-muted">
-            {siteConfig.nav.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="transition-colors hover:text-navy"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <PrimaryNav />
         </nav>
 
         {/* Right side: desktop CTA + mobile hamburger */}

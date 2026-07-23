@@ -13,33 +13,33 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-surface-muted bg-surface-muted">
+    <footer className="border-t border-white/10 bg-navy-dark text-white/70">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-12">
         {/* Brand + tagline */}
         <div className="lg:col-span-5">
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a
             href="/#hero"
-            className="font-heading text-lg font-bold text-navy"
+            className="font-heading text-lg font-bold text-white"
           >
             {siteConfig.name}
           </a>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-muted">
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
             {siteConfig.tagline}
           </p>
         </div>
 
         {/* Navigation */}
         <nav aria-label="Footer" className="lg:col-span-3">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-navy">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
             Navigate
           </h3>
-          <ul className="mt-4 space-y-3 text-sm text-ink-muted">
+          <ul className="mt-4 space-y-3 text-sm text-white/60">
             {nav.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="transition-colors hover:text-navy"
+                  className="transition-colors hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -50,13 +50,13 @@ export default function Footer() {
 
         {/* Contact + CTA */}
         <div className="lg:col-span-4">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-navy">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
             Get in touch
           </h3>
-          <div className="mt-4 space-y-3 text-sm text-ink-muted">
+          <div className="mt-4 space-y-3 text-sm text-white/60">
             <a
               href={`mailto:${company.email}`}
-              className="flex items-center gap-2 transition-colors hover:text-navy"
+              className="flex items-center gap-2 transition-colors hover:text-white"
             >
               <Mail size={16} aria-hidden />
               {company.email}
@@ -65,7 +65,7 @@ export default function Footer() {
               href={company.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 transition-colors hover:text-navy"
+              className="flex items-center gap-2 transition-colors hover:text-white"
             >
               <FaLinkedin size={16} aria-hidden />
               LinkedIn
@@ -81,8 +81,8 @@ export default function Footer() {
       </div>
 
       {/* Legal identity block (required trust signal for a Swedish AB) */}
-      <div className="border-t border-navy/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             &copy; {year} {company.legalName} &middot; Org.nr{" "}
             {company.orgNumber} &middot; {company.location}
@@ -92,7 +92,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors hover:text-navy"
+                className="transition-colors hover:text-white"
               >
                 {link.label}
               </Link>

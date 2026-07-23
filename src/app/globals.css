@@ -60,6 +60,14 @@ h3 {
   font-family: var(--font-heading), var(--font-sans), sans-serif;
 }
 
+/* Visible keyboard focus for every interactive element (WCAG 2.4.7).
+   Mouse/touch users see nothing thanks to :focus-visible; keyboard users get a
+   consistent cyan ring. Kept global so components don't each repeat it. */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
 /* Respect users who prefer reduced motion (design system requirement) */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -105,7 +105,8 @@ export default function ContactForm({ privacyHref }: { privacyHref: string }) {
           type="text"
           autoComplete="name"
           aria-invalid={!!errors.name}
-          className="w-full rounded-lg border border-navy/15 bg-surface px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-cyan"
+          aria-describedby={errors.name ? "name-error" : undefined}
+          className="w-full rounded-lg border border-navy/15 bg-surface px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-cyan aria-invalid:border-red-500"
         />
       </Field>
 
@@ -116,7 +117,8 @@ export default function ContactForm({ privacyHref }: { privacyHref: string }) {
           type="email"
           autoComplete="email"
           aria-invalid={!!errors.email}
-          className="w-full rounded-lg border border-navy/15 bg-surface px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-cyan"
+          aria-describedby={errors.email ? "email-error" : undefined}
+          className="w-full rounded-lg border border-navy/15 bg-surface px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-cyan aria-invalid:border-red-500"
         />
       </Field>
 
@@ -126,7 +128,8 @@ export default function ContactForm({ privacyHref }: { privacyHref: string }) {
           name="message"
           rows={5}
           aria-invalid={!!errors.message}
-          className="w-full rounded-lg border border-navy/15 bg-surface px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-cyan"
+          aria-describedby={errors.message ? "message-error" : undefined}
+          className="w-full rounded-lg border border-navy/15 bg-surface px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-cyan aria-invalid:border-red-500"
         />
       </Field>
 
