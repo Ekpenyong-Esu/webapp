@@ -1,27 +1,12 @@
-import { Cpu, Gauge, BrainCircuit, Network, RadioTower, Eye, Code2, Workflow, Tags, Handshake } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import ServiceCard from "@/components/sections/ServiceCard";
 import Reveal from "@/components/ui/Reveal";
 
 /**
  * Services section (Layer 7). Maps the `services` config to reusable
- * `ServiceCard`s. The icon lookup lives here (not in the config) so the config
- * stays plain data and only this component depends on lucide.
+ * `ServiceCard`s, each of which derives its own cover illustration from the
+ * service's icon key.
  */
-const icons: Record<string, LucideIcon> = {
-  cpu: Cpu,
-  gauge: Gauge,
-  brain: BrainCircuit,
-  network: Network,
-  iot: RadioTower,
-  eye: Eye,
-  code: Code2,
-  cicd: Workflow,
-  annotate: Tags,
-  consult: Handshake,
-};
-
 export default function Services() {
   const { services } = siteConfig;
 
@@ -42,11 +27,7 @@ export default function Services() {
         <Reveal delay={100}>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <ServiceCard
-                key={service.title}
-                service={service}
-                Icon={icons[service.icon]}
-              />
+              <ServiceCard key={service.title} service={service} />
             ))}
           </ul>
         </Reveal>
