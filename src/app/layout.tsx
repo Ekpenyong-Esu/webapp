@@ -21,7 +21,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const seoTitle =
-  "zaramTech AB - Embedded systems, Machine learning, AI, Full Stack, edge AI & automotive test engineering";
+  "zaramTech AB — Embedded Systems, Edge AI & Automotive Test";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

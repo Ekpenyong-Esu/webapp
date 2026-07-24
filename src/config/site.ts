@@ -110,6 +110,7 @@ export const siteConfig = {
   caseStudies: [
     {
       domain: "Edge AI",
+      category: "AI",
       title: "On-device detection with instant alerting",
       problem:
         "A client needed real-time object detection on a low-cost, battery-friendly camera — without streaming video to the cloud.",
@@ -120,6 +121,7 @@ export const siteConfig = {
     },
     {
       domain: "Computer Vision",
+      category: "AI",
       title: "Detection tuned for Nordic winter conditions",
       problem:
         "Vehicles had to be detected reliably in heavy snow and low light, where off-the-shelf models degrade sharply.",
@@ -130,6 +132,7 @@ export const siteConfig = {
     },
     {
       domain: "Vehicle Networking",
+      category: "Automotive",
       title: "Deterministic real-time pipeline over TSN + 4G",
       problem:
         "A system needed low-latency, deterministic data transport across in-vehicle and remote links.",
@@ -140,6 +143,7 @@ export const siteConfig = {
     },
     {
       domain: "Predictive AI",
+      category: "AI",
       title: "Predictive maintenance for HIL test systems",
       problem:
         "Unexpected hardware degradation in HIL test rigs caused unplanned downtime during ADAS validation.",
@@ -150,6 +154,7 @@ export const siteConfig = {
     },
     {
       domain: "Sensor Fusion",
+      category: "AI",
       title: "Indoor localization with BLE and sensor fusion",
       problem:
         "Indoor positioning needed higher accuracy than signal-strength (RSSI) alone could deliver.",
@@ -160,6 +165,7 @@ export const siteConfig = {
     },
     {
       domain: "Automotive Test",
+      category: "Automotive",
       title: "End-to-end HIL rig for safety-critical bus systems",
       problem:
         "Safety-critical vehicle systems needed automated, repeatable verification before deployment.",
@@ -170,6 +176,7 @@ export const siteConfig = {
     },
     {
       domain: "TinyML",
+      category: "AI",
       title: "Always-on TinyML sensing on a microcontroller",
       problem:
         "A product needed always-on recognition on a battery-powered microcontroller, with no cloud connection.",
@@ -180,6 +187,7 @@ export const siteConfig = {
     },
     {
       domain: "GUI & Tooling",
+      category: "Tooling",
       title: "Desktop GUIs for hardware control and test",
       problem:
         "Engineers needed a simple desktop interface to configure, control, and monitor test hardware — without touching low-level scripts.",
@@ -190,6 +198,7 @@ export const siteConfig = {
     },
     {
       domain: "Firmware",
+      category: "Firmware",
       title: "Portable bare-metal firmware across MCU families",
       problem:
         "A product line needed consistent low-level drivers across several microcontroller families.",
@@ -200,6 +209,7 @@ export const siteConfig = {
     },
     {
       domain: "RTOS Firmware",
+      category: "Firmware",
       title: "Real-time firmware on FreeRTOS across microcontrollers",
       problem:
         "Time-critical tasks needed deterministic scheduling on constrained hardware.",
@@ -210,6 +220,7 @@ export const siteConfig = {
     },
     {
       domain: "Consultancy",
+      category: "Consultancy",
       title: "Architecture & code-quality advisory for an embedded team",
       problem:
         "A team needed independent review of their embedded software architecture and delivery process.",
@@ -224,7 +235,7 @@ export const siteConfig = {
   contact: {
     heading: "Let's talk about your project",
     subheading:
-      "Embedded development, AI, Machine Learning, Robotics, HIL/SIL, edge AI, or full-stack — tell me what you're building and I'll get back to you.",
+      "Embedded development, AI, Machine Learning, Robotics, HIL/SIL, edge AI, or full-stack — tell us what you're building and we'll get back to you.",
     /** Where the consent checkbox links (privacy policy — built in a later layer). */
     privacyHref: "/privacy",
   },
@@ -331,14 +342,14 @@ export const siteConfig = {
     heading: "About",
     paragraphs: [
       "zaramTech AB is a boutique engineering consultancy spanning the full path from silicon to cloud — embedded firmware, HIL/SIL automotive test, on-device edge AI, and full-stack software.",
-      "Behind it is 10+ years designing, integrating, and validating embedded and automotive software. At Volvo Buses, that means building Hardware-in-the-Loop rigs end-to-end and the automated test infrastructure — NI VeriStand, TwinCAT, and Aliaro SIL — that validates safety-critical vehicle systems.",
+      "Behind it is 10+ years designing, integrating, and validating embedded and automotive software — building Hardware-in-the-Loop rigs end-to-end and the automated test infrastructure (NI VeriStand, TwinCAT, and Aliaro SIL) that validates safety-critical vehicle systems.",
       "That deep firmware, RTOS, and vehicle-networking background is paired with applied AI/ML research — including a quantized YOLOv8n detector deployed on an ESP32-CAM via TFLite Micro for real-time, offline, on-device detection.",
     ],
     highlights: [
       "10+ years in embedded & automotive",
-      "Volvo Buses — HIL/SIL test engineering",
-      "MSc Computer Science · M.Eng Applied AI",
-      "Swedish Institute & Google Africa scholar",
+      "HIL/SIL automotive test engineering",
+      "Applied AI & edge ML expertise",
+      "Sweden-based, working internationally",
     ],
   },
 
@@ -356,6 +367,7 @@ export const siteConfig = {
    *  /privacy, jumping back to the home page and scrolling to the section. */
   nav: [
     { label: "Services", href: "/#services" },
+    { label: "Process", href: "/#process" },
     { label: "Case studies", href: "/#case-studies" },
     { label: "Tech stack", href: "/#tech-stack" },
     { label: "About", href: "/#about" },
@@ -370,4 +382,40 @@ export const siteConfig = {
 
   /** The single call-to-action repeated across the site. */
   cta: { label: "Book a call", href: "/#contact" },
+
+  /** Lower-commitment secondary CTA for visitors not ready to book yet. */
+  secondaryCta: { label: "See case studies", href: "/#case-studies" },
+
+  /**
+   * Engagement model ("How we work"). A light, four-step process that tells
+   * prospects how a project runs before they book a call — reducing friction
+   * and adding professionalism. Plain data rendered by the Process component.
+   */
+  process: {
+    heading: "How we work",
+    subheading:
+      "A clear, low-friction path from first conversation to handover.",
+    steps: [
+      {
+        title: "Discovery",
+        description:
+          "A short call to understand the problem, constraints, and what success looks like.",
+      },
+      {
+        title: "Scoping",
+        description:
+          "A written proposal with milestones, timeline, and a clear budget — project-based, retainer, or hourly.",
+      },
+      {
+        title: "Build",
+        description:
+          "Iterative delivery with regular check-ins, working demos, and code you can review as we go.",
+      },
+      {
+        title: "Handover",
+        description:
+          "Documentation, source, and a walkthrough so your team can own and extend the work.",
+      },
+    ],
+  },
 } as const;

@@ -12,7 +12,7 @@ const DOMAIN_COVERS: Record<string, CoverVariant> = {
   "Predictive AI": "predictive",
   "Sensor Fusion": "sensorfusion",
   "Automotive Test": "hil",
-  TinyML: "edgeai",
+  TinyML: "tinyml",
   "GUI & Tooling": "gui",
   Firmware: "chip",
   "RTOS Firmware": "rtos",

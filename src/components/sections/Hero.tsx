@@ -10,7 +10,7 @@ import Reveal from "@/components/ui/Reveal";
  * its own `HeroMotif` component to keep this markup readable.
  */
 export default function Hero() {
-  const { hero, cta } = siteConfig;
+  const { hero, cta, secondaryCta } = siteConfig;
 
   return (
     <section
@@ -33,12 +33,20 @@ export default function Hero() {
               silicon → cloud flow */}
           <FlowDiagram steps={hero.chain} />
 
-          <a
-            href={cta.href}
-            className="mt-2 inline-flex items-center justify-center rounded-lg bg-cyan px-6 py-3 font-medium text-navy-dark transition-colors hover:bg-cyan-light"
-          >
-            {cta.label}
-          </a>
+          <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
+            <a
+              href={cta.href}
+              className="inline-flex items-center justify-center rounded-lg bg-cyan px-6 py-3 font-medium text-navy-dark transition-colors hover:bg-cyan-light"
+            >
+              {cta.label}
+            </a>
+            <a
+              href={secondaryCta.href}
+              className="inline-flex items-center justify-center rounded-lg border border-white/20 px-6 py-3 font-medium text-white transition-colors hover:border-cyan hover:text-cyan"
+            >
+              {secondaryCta.label}
+            </a>
+          </div>
         </div>
       </Reveal>
 

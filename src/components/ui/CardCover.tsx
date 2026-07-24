@@ -6,10 +6,11 @@
  * rather than a generic icon.
  *
  * All scenes share one calm visual language: a soft light board with a faint
- * grid, navy line-art that carries the drawing, and cyan used sparingly as a
- * focal accent. Purely decorative, so the whole thing is aria-hidden. No
- * <defs>/gradient ids are used, so many covers can render on one page without
- * id collisions.
+ * dot grid, navy line-art that carries the drawing, and cyan used sparingly as
+ * a focal accent. Each cover carries a concise text alternative (role="img" +
+ * aria-label) so it's announced to screen readers and legible to crawlers,
+ * while the inner SVG stays aria-hidden. No <defs>/gradient ids are used, so
+ * many covers can render on one page without id collisions.
  */
 export type CoverVariant =
   | "chip"
@@ -25,7 +26,30 @@ export type CoverVariant =
   | "consult"
   | "predictive"
   | "sensorfusion"
+  | "tinyml"
   | "gui";
+
+/**
+ * Concise text alternative for each cover, kept beside the art so the
+ * accessible name stays in sync with what the illustration actually depicts.
+ */
+const COVER_LABELS: Record<CoverVariant, string> = {
+  chip: "Illustration of a microcontroller chip with pins and circuit traces",
+  rtos: "Illustration of a real-time scheduler clock and task timeline",
+  hil: "Illustration of a vehicle wired to a hardware-in-the-loop test rack",
+  edgeai: "Illustration of a neural network running on an on-device AI chip",
+  network: "Illustration of a CAN bus with electronic control units connected",
+  iot: "Illustration of a sensor device streaming telemetry to the cloud",
+  vision: "Illustration of a camera lens detecting objects with bounding boxes",
+  web: "Illustration of a browser window with layout blocks and code brackets",
+  cicd: "Illustration of a CI/CD pipeline with a passing check",
+  annotate: "Illustration of an image frame with labelled bounding boxes",
+  consult: "Illustration of a software architecture stack under review",
+  predictive: "Illustration of a rising trend chart with a dashed forecast",
+  sensorfusion: "Illustration of multiple sensors triangulating a located point",
+  tinyml: "Illustration of a compact quantized model on a microcontroller sensing a live signal",
+  gui: "Illustration of a desktop control app with a dial and live plot",
+};
 
 export default function CardCover({
   variant,
@@ -38,13 +62,15 @@ export default function CardCover({
 
   return (
     <div
-      aria-hidden
-      className={`relative overflow-hidden bg-linear-to-br from-surface to-surface-muted ${className}`}
+      role="img"
+      aria-label={COVER_LABELS[variant]}
+      className={`relative overflow-hidden border-b border-navy/5 bg-linear-to-br from-surface to-surface-muted ${className}`}
     >
       <svg
         viewBox="0 0 320 128"
         preserveAspectRatio="xMidYMid slice"
-        className="h-full w-full"
+        aria-hidden
+        className="h-full w-full [&_*]:[stroke-linecap:round] [&_*]:[stroke-linejoin:round] [&_*]:[stroke-width:1.4]"
       >
         <GridBackdrop />
         <Motif />
@@ -53,27 +79,29 @@ export default function CardCover({
   );
 }
 
-/** Faint circuit-board grid shared by every cover. */
+/** Faint circuit-board dot grid shared by every cover — quieter and more
+ *  precise than full ruled lines, so the foreground art stays the focus. */
 function GridBackdrop() {
-  const lines = [];
-  for (let x = 0; x <= 320; x += 32) {
-    lines.push(<line key={`v${x}`} x1={x} y1={0} x2={x} y2={128} />);
-  }
-  for (let y = 0; y <= 128; y += 32) {
-    lines.push(<line key={`h${y}`} x1={0} y1={y} x2={320} y2={y} />);
+  const dots = [];
+  for (let x = 32; x < 320; x += 32) {
+    for (let y = 32; y < 128; y += 32) {
+      dots.push(<circle key={`${x}-${y}`} cx={x} cy={y} r={1} />);
+    }
   }
   return (
-    <g stroke="var(--color-navy)" strokeOpacity="0.06" strokeWidth="1">
-      {lines}
+    <g fill="var(--color-navy)" fillOpacity="0.09">
+      {dots}
     </g>
   );
 }
 
-// Shared colours for the foreground line-art. Navy carries the drawing; cyan is
-// used sparingly as a focal accent; solids are filled with the card surface so
-// shapes read as outlines rather than heavy blocks.
+// Shared colours for the foreground line-art. Navy carries the drawing; a
+// muted, navy-blended teal is the single focal accent — restrained enough to
+// read as a mature technical highlight rather than a vivid "sticker" colour.
+// Solids are filled with the card surface so shapes read as outlines rather
+// than heavy blocks.
 const LINE = "var(--color-navy)";
-const CYAN = "var(--color-cyan)";
+const CYAN = "color-mix(in srgb, var(--color-cyan) 52%, var(--color-navy))";
 const FILL = "var(--color-surface)";
 
 /** Embedded & Firmware — a microcontroller IC with pins and traces. */
@@ -433,8 +461,7 @@ function SensorFusionMotif() {
 }
 
 /** GUI & tooling — a desktop app with a dial and a live plot. */
-function GuiMotif() {
-  return (
+function GuiMotif() {  return (
     <g fill="none" stroke={LINE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="46" y="26" width="228" height="80" rx="8" fill={FILL} strokeOpacity="0.85" />
       <path d="M46 44 H274" strokeOpacity="0.5" />
@@ -455,6 +482,41 @@ function GuiMotif() {
   );
 }
 
+/** TinyML — a compact quantized model living on a microcontroller, watching a
+ *  continuous "always-on" signal, distinct from the edge-AI network graph. */
+function TinyMlMotif() {
+  const cellX = [71, 85, 99];
+  const cellY = [45, 59, 73];
+  return (
+    <g fill="none" stroke={LINE} strokeLinecap="round" strokeLinejoin="round">
+      {/* microcontroller */}
+      <rect x="52" y="40" width="76" height="48" rx="6" fill={FILL} strokeOpacity="0.85" />
+      {/* pins */}
+      <g strokeOpacity="0.6">
+        <path d="M66 40 v-6 M90 40 v-6 M114 40 v-6 M66 88 v6 M90 88 v6 M114 88 v6" />
+      </g>
+      {/* quantized model — a compact grid of weights, one cyan */}
+      <g strokeOpacity="0.4">
+        {cellY.map((y) =>
+          cellX.map((x) => (
+            <rect key={`${x}-${y}`} x={x} y={y} width="10" height="10" rx="2" />
+          )),
+        )}
+      </g>
+      <rect x="85" y="59" width="10" height="10" rx="2" fill={CYAN} fillOpacity="0.55" stroke="none" />
+      {/* link from the chip to the sensed stream */}
+      <path d="M128 64 h14" strokeOpacity="0.5" />
+      {/* always-on sensing pulse — mostly flat baseline = continuous monitoring */}
+      <path
+        d="M144 64 h18 l7 -16 l7 26 l7 -10 h22 l7 -16 l7 26 l7 -10 h30"
+        strokeOpacity="0.8"
+      />
+      {/* detection marker — cyan focal accent */}
+      <circle cx="176" cy="74" r="3.5" fill={CYAN} stroke="none" />
+    </g>
+  );
+}
+
 const MOTIFS: Record<CoverVariant, () => React.JSX.Element> = {
   chip: ChipMotif,
   rtos: RtosMotif,
@@ -469,5 +531,6 @@ const MOTIFS: Record<CoverVariant, () => React.JSX.Element> = {
   consult: ConsultMotif,
   predictive: PredictiveMotif,
   sensorfusion: SensorFusionMotif,
+  tinyml: TinyMlMotif,
   gui: GuiMotif,
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 /**
  * How many tags show before the rest collapse behind a "+N" toggle. Keeping it
@@ -50,9 +51,16 @@ export default function ServiceTags({
                 ? `Show fewer ${label} technologies`
                 : `Show ${hiddenTagCount} more ${label} technologies`
             }
-            className="rounded-full bg-cyan/10 px-2.5 py-1 text-xs font-semibold text-navy transition-colors hover:bg-cyan hover:text-navy-dark"
+            className="inline-flex items-center gap-1 rounded-full bg-cyan/10 px-2.5 py-1 text-xs font-semibold text-navy ring-1 ring-inset ring-cyan/30 transition-colors hover:bg-cyan hover:text-navy-dark"
           >
-            {expanded ? "Show less" : `+${hiddenTagCount}`}
+            {expanded ? "Show less" : `+${hiddenTagCount} more`}
+            <ChevronDown
+              size={12}
+              aria-hidden
+              className={`transition-transform duration-200 ${
+                expanded ? "rotate-180" : ""
+              }`}
+            />
           </button>
         </li>
       )}
