@@ -24,7 +24,7 @@ const organizationNode = {
     "@type": "ContactPoint",
     email: siteConfig.company.email,
     contactType: "customer support",
-    areaServed: "SE",
+    areaServed: ["SE", "Europe", "North America", "US", "CA"],
     availableLanguage: ["English", "Swedish"],
   },
   address: {
@@ -55,6 +55,9 @@ const professionalServiceNode = {
   areaServed: [
     { "@type": "Country", name: "Sweden" },
     { "@type": "Place", name: "Europe" },
+    { "@type": "Place", name: "North America" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
   ],
   knowsAbout: [
     "Embedded systems",

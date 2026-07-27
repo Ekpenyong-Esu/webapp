@@ -14,6 +14,6 @@ export const about = {
     "10+ years in embedded & automotive",
     "HIL/SIL automotive test engineering",
     "Applied AI & edge ML expertise",
-    "Sweden-based, working internationally",
+    "Sweden-based · serving Europe & North America",
   ],
 } as const;
