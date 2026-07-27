@@ -1,5 +1,6 @@
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/ui/Reveal";
+import TechIcon from "@/components/sections/TechIcon";
 
 /**
  * Tech stack section (Layer 10). Renders the grouped keyword grid from
@@ -31,8 +32,13 @@ export default function TechStack() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-navy/10 bg-surface-muted px-3 py-1 text-sm text-ink-muted"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-navy/10 bg-surface-muted px-3 py-1 text-sm text-ink-muted"
                     >
+                      <TechIcon
+                        name={item}
+                        category={group.category}
+                        className="shrink-0 text-navy/70"
+                      />
                       {item}
                     </li>
                   ))}
