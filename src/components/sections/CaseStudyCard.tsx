@@ -9,6 +9,7 @@ const DOMAIN_COVERS: Record<string, CoverVariant> = {
   "Edge AI": "edgeai",
   "Computer Vision": "vision",
   "Vehicle Networking": "network",
+  IoT: "iot",
   "Predictive AI": "predictive",
   "Sensor Fusion": "sensorfusion",
   "Automotive Test": "hil",
