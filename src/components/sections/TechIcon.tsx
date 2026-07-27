@@ -1,35 +1,43 @@
 import type { ComponentType } from "react";
 import {
-  SiC,
-  SiCplusplus,
-  SiPython,
-  SiSharp,
-  SiJavascript,
-  SiStmicroelectronics,
-  SiEspressif,
-  SiArduino,
-  SiRaspberrypi,
-  SiMqtt,
-  SiGooglecloud,
-  SiGit,
-  SiPytorch,
-  SiTensorflow,
-  SiKeras,
-  SiOpencv,
-  SiReact,
-  SiHtml5,
-} from "react-icons/si";
-import {
-  Code,
-  Cpu,
+  Activity,
+  Antenna,
+  Atom,
+  Binary,
+  Bluetooth,
+  Braces,
+  BrainCircuit,
+  Bug,
+  Cable,
+  CircleCheck,
   CircuitBoard,
+  Cloud,
+  Code2,
+  Cpu,
+  Database,
+  DownloadCloud,
+  EthernetPort,
+  Eye,
+  Factory,
+  FileCode,
+  FlaskConical,
+  GitBranch,
+  Globe,
+  Lock,
+  Microchip,
   Network,
   Radio,
+  RadioTower,
+  ScanEye,
+  Shield,
+  ShieldAlert,
   ShieldCheck,
+  Signal,
+  SquareTerminal,
+  Terminal,
+  Webhook,
+  Workflow,
   Wrench,
-  BrainCircuit,
-  Cloud,
-  Database,
 } from "lucide-react";
 
 /** An icon component that accepts a size + className (both react-icons and
@@ -41,31 +49,66 @@ type IconComponent = ComponentType<{
 }>;
 
 /**
- * Brand / technology logos for the specific tools that have one — the "C, C++,
- * Python…" that read best as a recognisable mark rather than plain text.
+ * A meaningful Lucide icon for specific tools, so each item reads at a glance
+ * while every glyph stays in one consistent line-icon family.
  */
 const TECH_ICONS: Record<string, IconComponent> = {
-  C: SiC,
-  "C++": SiCplusplus,
-  Python: SiPython,
-  "C#": SiSharp,
-  JavaScript: SiJavascript,
+  // Languages
+  C: Code2,
+  "C++": Code2,
+  "C#": Code2,
+  Python: FileCode,
+  JavaScript: Braces,
+  "Structured Text (IEC 61131-3)": SquareTerminal,
+  VHDL: CircuitBoard,
   SQL: Database,
-  STM32: SiStmicroelectronics,
-  ESP32: SiEspressif,
-  Arduino: SiArduino,
-  "Raspberry Pi": SiRaspberrypi,
-  "Raspberry Pico": SiRaspberrypi,
-  MQTT: SiMqtt,
-  "GCP IoT Core": SiGooglecloud,
-  Git: SiGit,
-  PyTorch: SiPytorch,
-  TensorFlow: SiTensorflow,
-  Keras: SiKeras,
-  OpenCV: SiOpencv,
-  "Google Cloud": SiGooglecloud,
-  "React / Next.js": SiReact,
-  "HTML / CSS / JS": SiHtml5,
+  // Embedded & RTOS
+  "Bare-metal": Binary,
+  "BSP / Drivers": CircuitBoard,
+  "Embedded Linux": Terminal,
+  PLCs: Factory,
+  // Hardware
+  STM32: Microchip,
+  ESP32: Microchip,
+  "Texas Instruments": Microchip,
+  Arduino: CircuitBoard,
+  "Raspberry Pi": CircuitBoard,
+  "Raspberry Pico": CircuitBoard,
+  Odroid: CircuitBoard,
+  // Protocols & Networking
+  "CAN / CAN FD": Cable,
+  "SPI / I2C / UART": Cable,
+  "BLE 5.2": Bluetooth,
+  "4G": Signal,
+  "Ethernet / TCP/IP": EthernetPort,
+  // IoT & Connectivity
+  MQTT: Antenna,
+  "AWS IoT": Cloud,
+  "GCP IoT Core": Cloud,
+  LoRaWAN: RadioTower,
+  "OTA Updates": DownloadCloud,
+  "Device Telemetry": Activity,
+  // Security
+  Cybersecurity: Shield,
+  "TLS / Encryption": Lock,
+  "Threat Modeling": ShieldAlert,
+  "Penetration Testing": Bug,
+  // Test & Tooling
+  "HIL / SIL": FlaskConical,
+  "NI VeriStand": FlaskConical,
+  "Aliaro SIL": FlaskConical,
+  "Test Automation": CircleCheck,
+  "CI/CD": Workflow,
+  Git: GitBranch,
+  // AI / ML
+  OpenCV: ScanEye,
+  "TFLite Micro": Cpu,
+  YOLO: Eye,
+  // Cloud & Web
+  "Google Cloud": Cloud,
+  "React / Next.js": Atom,
+  "REST APIs": Webhook,
+  "HTML / CSS / JS": Globe,
 };
 
 /**
@@ -73,7 +116,7 @@ const TECH_ICONS: Record<string, IconComponent> = {
  * brand logo still gets a meaningful, consistent glyph.
  */
 const CATEGORY_FALLBACK: Record<string, IconComponent> = {
-  Languages: Code,
+  Languages: Code2,
   "Embedded & RTOS": Cpu,
   Hardware: CircuitBoard,
   "Protocols & Networking": Network,
@@ -98,6 +141,6 @@ export default function TechIcon({
   category: string;
   className?: string;
 }) {
-  const Icon = TECH_ICONS[name] ?? CATEGORY_FALLBACK[category] ?? Code;
+  const Icon = TECH_ICONS[name] ?? CATEGORY_FALLBACK[category] ?? Code2;
   return <Icon size={14} aria-hidden className={className} />;
 }
