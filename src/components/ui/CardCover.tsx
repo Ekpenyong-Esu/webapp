@@ -27,6 +27,7 @@ export type CoverVariant =
   | "predictive"
   | "sensorfusion"
   | "tinyml"
+  | "security"
   | "gui";
 
 /**
@@ -48,6 +49,7 @@ const COVER_LABELS: Record<CoverVariant, string> = {
   predictive: "Illustration of a rising trend chart with a dashed forecast",
   sensorfusion: "Illustration of multiple sensors triangulating a located point",
   tinyml: "Illustration of a compact quantized model on a microcontroller sensing a live signal",
+  security: "Illustration of a security shield with a keyhole guarding a device",
   gui: "Illustration of a desktop control app with a dial and live plot",
 };
 
@@ -70,7 +72,7 @@ export default function CardCover({
         viewBox="0 0 320 128"
         preserveAspectRatio="xMidYMid slice"
         aria-hidden
-        className="h-full w-full [&_*]:[stroke-linecap:round] [&_*]:[stroke-linejoin:round] [&_*]:[stroke-width:1.4]"
+        className="h-full w-full **:[stroke-linecap:round] **:[stroke-linejoin:round] **:stroke-[1.4]"
       >
         <GridBackdrop />
         <Motif />
@@ -517,6 +519,39 @@ function TinyMlMotif() {
   );
 }
 
+/** Security — a shield with a keyhole guarding a device, with approach traces
+ *  hinting the embedded / networked context being protected. */
+function SecurityMotif() {
+  return (
+    <g fill="none" stroke={LINE} strokeLinecap="round" strokeLinejoin="round">
+      {/* approach traces into the protected boundary */}
+      <g strokeOpacity="0.28" strokeDasharray="4 4">
+        <path d="M20 64 H118" />
+        <path d="M202 64 H300" />
+      </g>
+      <g stroke="none" fill={LINE} fillOpacity="0.3">
+        <circle cx="20" cy="64" r="2.5" />
+        <circle cx="300" cy="64" r="2.5" />
+      </g>
+      {/* shield */}
+      <path
+        d="M160 26 L198 40 V66 C198 90 180 102 160 110 C140 102 122 90 122 66 V40 Z"
+        fill={FILL}
+        strokeOpacity="0.85"
+      />
+      {/* inner outline */}
+      <path
+        d="M160 36 L188 47 V66 C188 84 175 94 160 100 C145 94 132 84 132 66 V47 Z"
+        strokeOpacity="0.3"
+      />
+      {/* keyhole — cyan focal accent */}
+      <circle cx="160" cy="56" r="6.5" stroke={CYAN} />
+      <path d="M156 60 L153 80 H167 L164 60 Z" fill={CYAN} fillOpacity="0.55" stroke="none" />
+      <circle cx="160" cy="56" r="2.5" fill={CYAN} stroke="none" />
+    </g>
+  );
+}
+
 const MOTIFS: Record<CoverVariant, () => React.JSX.Element> = {
   chip: ChipMotif,
   rtos: RtosMotif,
@@ -532,5 +567,6 @@ const MOTIFS: Record<CoverVariant, () => React.JSX.Element> = {
   predictive: PredictiveMotif,
   sensorfusion: SensorFusionMotif,
   tinyml: TinyMlMotif,
+  security: SecurityMotif,
   gui: GuiMotif,
 };

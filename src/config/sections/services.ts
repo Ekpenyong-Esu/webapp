@@ -59,6 +59,12 @@ export const services = [
     tags: ["Image Labeling", "Bounding Boxes", "Segmentation", "Datasets", "QA"],
   },
   {
+    icon: "security",
+    title: "Security & Cybersecurity",
+    benefit: "Embedded, ML/AI, and cyber security — hardening devices, models, and systems end to end.",
+    tags: ["Embedded Security", "Secure Boot", "ML/AI Security", "Cybersecurity", "Threat Modeling", "TLS / Encryption", "OTA Security", "Penetration Testing"],
+  },
+  {
     icon: "consult",
     title: "Technical Consultancy",
     benefit: "Architecture, feasibility, and hands-on guidance across the hardware-to-cloud stack.",

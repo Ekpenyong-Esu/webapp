@@ -68,6 +68,18 @@ export const techStack = {
       ],
     },
     {
+      category: "Security",
+      items: [
+        "Embedded Security",
+        "Secure Boot",
+        "ML/AI Security",
+        "Cybersecurity",
+        "TLS / Encryption",
+        "Threat Modeling",
+        "Penetration Testing",
+      ],
+    },
+    {
       category: "Test & Tooling",
       items: [
         "HIL / SIL",

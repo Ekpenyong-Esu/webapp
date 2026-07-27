@@ -17,6 +17,7 @@ const SERVICE_COVERS: Record<string, CoverVariant> = {
   cicd: "cicd",
   annotate: "annotate",
   consult: "consult",
+  security: "security",
 };
 
 /**

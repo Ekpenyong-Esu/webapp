@@ -7,7 +7,7 @@ export const hero = {
   headline: "From silicon to cloud — one engineering partner.",
   /** Supporting line that states the full-stack-of-hardware differentiator. */
   subheadline:
-    "Embedded firmware, HIL/SIL automotive test rigs, on-device edge AI, Robotics, Machine Learning, and full-stack software — one partner across the whole path, from bare-metal to cloud.",
+    "Embedded Systems, Firmware, HIL/SIL automotive test rigs, on-device edge AI, Robotics, Machine Learning, and full-stack software — one partner across the whole path, from bare-metal to cloud.",
   /** The silicon → cloud chain, shown as a subtle row of steps. */
   chain: [
     "Embedded",
@@ -20,5 +20,6 @@ export const hero = {
     "Edge AI",
     "IoT",
     "Cloud",
+    "Embedded, Machine Learning, and AI Security",
   ],
 } as const;

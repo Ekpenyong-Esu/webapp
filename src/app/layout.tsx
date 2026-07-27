@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { siteConfig } from "@/config/site";
+import { siteStructuredData } from "@/lib/structuredData";
 
 // Body font: neutral, highly readable sans
 const inter = Inter({
@@ -48,6 +49,9 @@ export const metadata: Metadata = {
   authors: [{ name: "zaramTech AB" }],
   creator: "zaramTech AB",
   alternates: { canonical: "/" },
+  // Google Search Console: paste the verification token here once you've added
+  // the property (Search Console → Settings → Ownership verification → HTML tag).
+  // verification: { google: "YOUR_TOKEN" },
   openGraph: {
     type: "website",
     siteName: "zaramTech AB",
@@ -60,36 +64,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seoTitle,
     description: siteConfig.description,
-  },
-};
-
-// JSON-LD Organization schema (SEO structured data — docs/08 §2).
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  legalName: siteConfig.company.legalName,
-  alternateName: ["zaramTech", "ZaramTech"],
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/logo.svg`,
-  email: siteConfig.company.email,
-  description: siteConfig.description,
-  sameAs: [siteConfig.company.linkedin],
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: siteConfig.company.email,
-    contactType: "customer support",
-    areaServed: "SE",
-    availableLanguage: ["English", "Swedish"],
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "SE",
-  },
-  identifier: {
-    "@type": "PropertyValue",
-    name: "Organisationsnummer",
-    value: siteConfig.company.orgNumber,
   },
 };
 
@@ -107,7 +81,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
+            __html: JSON.stringify(siteStructuredData),
           }}
         />
         <Header />
