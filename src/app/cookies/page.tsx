@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy — zaramTech AB",
   description:
     "How zaramTech AB uses cookies and local storage on this website.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function CookiesPage() {

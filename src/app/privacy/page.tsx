@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy — zaramTech AB",
   description:
     "How zaramTech AB collects, uses, and protects personal data submitted through this website.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
